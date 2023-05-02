@@ -16,24 +16,31 @@
     <button class="boton-personalizado" onclick="window.location.href='http://10.205.17.97:3000/hover'">Hover</button>
     <div class='wrapper'>
         <div class="puntuaciones">
-            <div> 
-                <span>Level:</span>
-                <span id="level">1</span>
-            </div>
-            <div> 
-                <!-- <img src="/Games/Snake/tail.png">  -->
-                <span>Points:</span>
-                <span id="apples">0</span>
-            </div>
-            <div>
-                <span>Máx Points:</span>
-                <span id="max_puntuacion">0</span>
-            </div>
+          <div> 
+            <span>Level:</span>
+            <span id="level">1</span>
           </div>
+          <div> 
+              <!-- <img src="/Games/Snake/tail.png">  -->
+              <span>Points:</span>
+              <span id="apples">0</span>
+          </div>
+          <div>
+            <span>Máx Points:</span>
+            <span id="max_puntuacion">0</span>
+          </div>
+        </div>
         <div id="board"><span></span></div>
         <div id="buttons">
             <button class="button2" type="button" value="Start" id="Start">Start<button class="button2" type="button" value="Pause" id="Pause" disabled>Pause
         </div>
+      <table class="rwd-table" id="score-table">
+        <tr>
+          <th>Position</th>
+          <th>Name</th>
+          <th>Score</th>
+        </tr>
+      </table>
     </div>
     <script type="text/javascript" src="/Games/Snake/snake.js" async></script>
     <label class="switch_dark" id="switch_dark">

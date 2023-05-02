@@ -1,0 +1,62 @@
+[
+  {
+    "nombre": "diego",
+    "puntuacion": "7",
+    "nivel": "2"
+  },
+  {
+    "nombre": "guillermo",
+    "puntuacion": "4",
+    "nivel": "1"
+  },
+  {
+    "nombre": "victor",
+    "puntuacion": "4",
+    "nivel": "1"
+  },
+  {
+    "nombre": "sandro",
+    "puntuacion": "2",
+    "nivel": "1"
+  },
+  {
+    "nombre": "samu",
+    "puntuacion": "3",
+    "nivel": "1"
+  },
+  {
+    "nombre": "ruben",
+    "puntuacion": "3",
+    "nivel": "1"
+  },
+  {
+    "nombre": "jesus",
+    "puntuacion": "4",
+    "nivel": "1"
+  },
+  {
+    "nombre": "pepito",
+    "puntuacion": "2",
+    "nivel": "1"
+  },
+  {
+    "nombre": "juanito",
+    "puntuacion": "1",
+    "nivel": "1"
+  },
+  {
+    "nombre": "benito",
+    "puntuacion": "1",
+    "nivel": "1"
+  },
+  {
+    "nombre": "bonito",
+    "puntuacion": "1",
+    "nivel": "1"
+  },
+  {
+    "nombre": null,
+    "puntuacion": "1",
+    "nivel": "1"
+  }
+]
