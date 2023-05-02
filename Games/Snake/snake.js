@@ -5,7 +5,7 @@ if(localStorage.getItem('max_puntuacion')==null){
 max_puntuacion.innerText=localStorage.getItem('max_puntuacion');
 let apples_puntuacion=0;
 
-
+//
 //localStorage.setItem('max_puntuacion', 0);
 (function(){
     const board=document.getElementById("board");
