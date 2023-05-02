@@ -1,0 +1,33 @@
+.background-container {
+  position: relative;
+  text-align: center;
+  margin: auto;
+  margin-top: 30px;
+  height: calc(315px * 1.3);
+  width: calc(560px * 1.3);
+  background: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+  background-size: 400%;
+  animation: ani 8s linear infinite;
+  z-index: 0;
+  border-radius: 35px;
+  backdrop-filter: blur(20px);
+}
+@keyframes ani {
+  0% {background-position: 0%;}
+  100% {background-position: 400%;}
+}
+
+/*//////////////  YOUTUBE //////////////////////////////////////////////////////////////////////////////////*/
+
+.youtube_1 {
+  /*margin-top: calc(((315 * 1.3)-315)/2)px;*/
+  margin-top: 47.25px;
+  position: relative;
+  text-align: center;
+  border-radius: 30px;
+  cursor: pointer;
+  z-index: 1;
+  /*backdrop-filter: blur(20px);*/
+  filter: blur(0);
+  /*filter: blur(20px);*/
+}
