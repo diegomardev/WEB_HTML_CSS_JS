@@ -14,7 +14,7 @@ const horaFormateada = `${hora < 10 ? '0' : ''}${hora}:${minutos < 10 ? '0' : ''
 document.getElementById('hora').textContent = `${horaFormateada}`;
 }
 function goToHomePage() {
-  window.location.href = 'http://10.205.17.97:3000/home';
+  window.location.href = '/home';
 }
 
 

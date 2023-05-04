@@ -5,7 +5,7 @@ const app = express();
 
 app.use(express.static('public'));
 app.use(express.json());
-
+let direccion_web ="http://diegomar.duckdns.org:3000"
 app.get('/home', (req, res) => {
   fs.readFile('./Home/home.html', 'utf8', (err, data) => {
     if (err) {
