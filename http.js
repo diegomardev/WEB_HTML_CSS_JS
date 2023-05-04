@@ -1,7 +1,6 @@
 const http = require('http');
 const express = require('express');
 const fs = require('fs');
-
 const app = express();
 
 app.use(express.static('public'));
@@ -96,7 +95,15 @@ app.get('/games/snake', (req, res) => {
     }
   });
 });
-
+app.get('/games/flappy', (req, res) => {
+  fs.readFile('./Games/Flappy/flappy.html', 'utf8', (err, data) => {
+    if (err) {
+      res.status(404).send('Error 404: Archivo no encontrado');
+    } else {
+      res.status(200).send(data);
+    }
+  });
+});
 app.get('/Home/home.js', (req, res) => {
   fs.readFile('./Home/home.js', (err, data) => {
     if (err) {
@@ -159,6 +166,16 @@ app.get('/Games/Pong/pong.js', (req, res) => {
 
 app.get('/Games/Snake/snake.js', (req, res) => {
   fs.readFile('./Games/Snake/snake.js', (err, data) => {
+    if (err) {
+      res.status(404).send('Error 404: Archivo no encontrado');
+    } else {
+      res.status(200).type('text/javascript').send(data);
+    }
+  });
+});
+
+app.get('/Games/Flappy/flappy.js', (req, res) => {
+  fs.readFile('./Games/Flappy/flappy.js', (err, data) => {
     if (err) {
       res.status(404).send('Error 404: Archivo no encontrado');
     } else {
@@ -237,6 +254,16 @@ app.get('/Games/Snake/snake.css', (req, res) => {
   });
 });
 
+app.get('/Games/Flappy/flappy.css', (req, res) => {
+  fs.readFile('./Games/Flappy/flappy.css', (err, data) => {
+    if (err) {
+      res.status(404).send('Error 404: Archivo no encontrado');
+    } else {
+      res.status(200).type('text/css').send(data);
+    }
+  });
+});
+
 app.get('/images/favicon.png', (req, res) => {
   fs.readFile('./images/favicon.png', (err, data) => {
     if (err) {
@@ -277,7 +304,7 @@ app.get('/Games/Snake/tail.png', (req, res) => {
   });
 });
 
-app.get('/games/Snake/puntuaciones.json', (req, res) => {
+app.get('/games/snake/puntuaciones.json', (req, res) => {
   fs.readFile('./Games/Snake/puntuaciones.json', (err, data) => {
     if (err) {
       res.status(404).send('Error 404: Archivo no encontrado');
@@ -287,7 +314,7 @@ app.get('/games/Snake/puntuaciones.json', (req, res) => {
   });
 });
 
-app.post('/guardar-puntuacion', (req, res) => {
+app.post('/save_game_snake', (req, res) => {
   const datos = req.body;
   console.log(datos); // Verifica los datos recibidos
 
@@ -301,10 +328,18 @@ app.post('/guardar-puntuacion', (req, res) => {
 
     // Buscamos si el nombre ya existe y si la nueva puntuación es mayor
     const index = puntuaciones.findIndex(item => item.nombre === datos.nombre);
+
+    //si el nombre existe pasamos la nueva puntuacion de string a number
+    if (index !== -1){
+      datos.puntuacion=parseInt(datos.puntuacion);
+      puntuaciones[index].puntuacion=parseInt(puntuaciones[index].puntuacion);
+    }
+
     // Si el nombre existe y la nueva puntuación es mayor, actualizamos la entrada existente
-    if (index !== -1 && datos.puntuacion > puntuaciones[index].puntuacion) {
+    if ((index !== -1) && (datos.puntuacion >= puntuaciones[index].puntuacion)) {
       puntuaciones[index].puntuacion = datos.puntuacion;
       puntuaciones[index].nivel = datos.nivel;
+      console.log('Actualizamos la entrada existente');
     }
     // Si el nombre existe pero la nueva puntuación es menor o igual, no hacemos nada.
     if (index !== -1 && datos.puntuacion <= puntuaciones[index].puntuacion) {
@@ -313,6 +348,65 @@ app.post('/guardar-puntuacion', (req, res) => {
     // Si el nombre no existe, agregamos una nueva entrada al arreglo
     else{
       puntuaciones.push(datos);
+      console.log('Agregamos una nueva entrada');
+    }
+
+    // Escribimos los datos actualizados en el archivo
+    //fs.writeFileSync(archivo, JSON.stringify(puntuaciones));
+    fs.writeFileSync(archivo, JSON.stringify(puntuaciones, null, 2));
+    // Devolvemos una respuesta al cliente
+    res.send({ mensaje: 'Puntuación guardada con éxito' });
+  } catch (error) {
+    console.log(error);
+    // Si hay un error, enviamos una respuesta al cliente con un mensaje de error
+    res.status(500).send({ mensaje: 'Ocurrió un error al guardar la puntuación' });
+  }
+});
+
+app.get('/games/flappy/puntuaciones.json', (req, res) => {
+  fs.readFile('./Games/Flappy/puntuaciones.json', (err, data) => {
+    if (err) {
+      res.status(404).send('Error 404: Archivo no encontrado');
+    } else {
+      res.status(200).type('application/json').send(data);
+    }
+  });
+});
+
+app.post('/save_game_flappy', (req, res) => {
+  const datos = req.body;
+  console.log(datos); // Verifica los datos recibidos
+
+  const archivo = './Games/Flappy/puntuaciones.json';
+  let puntuaciones = [];
+
+  try {
+    // Intentamos leer el archivo de puntuaciones existente
+    const contenido = fs.readFileSync(archivo, 'utf-8');
+    puntuaciones = JSON.parse(contenido);
+
+    // Buscamos si el nombre ya existe y si la nueva puntuación es mayor
+    const index = puntuaciones.findIndex(item => item.nombre === datos.nombre);
+
+    //si el nombre existe pasamos la nueva puntuacion de string a number
+    if (index !== -1){
+      datos.puntuacion=parseInt(datos.puntuacion);
+      puntuaciones[index].puntuacion=parseInt(puntuaciones[index].puntuacion);
+    }
+
+    // Si el nombre existe y la nueva puntuación es mayor, actualizamos la entrada existente
+    if ((index !== -1) && (datos.puntuacion >= puntuaciones[index].puntuacion)) {
+      puntuaciones[index].puntuacion = datos.puntuacion;
+      console.log('Actualizamos la entrada existente');
+    }
+    // Si el nombre existe pero la nueva puntuación es menor o igual, no hacemos nada.
+    if (index !== -1 && datos.puntuacion <= puntuaciones[index].puntuacion) {
+      console.log('No se hace nada');
+    }
+    // Si el nombre no existe, agregamos una nueva entrada al arreglo
+    else{
+      puntuaciones.push(datos);
+      console.log('Agregamos una nueva entrada');
     }
 
     // Escribimos los datos actualizados en el archivo

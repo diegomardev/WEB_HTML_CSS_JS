@@ -1,7 +1,7 @@
 [
   {
-    "nombre": "diego",
-    "puntuacion": "7",
+    "nombre": null,
+    "puntuacion": 999999999,
     "nivel": "2"
   },
   {
@@ -11,28 +11,28 @@
   },
   {
     "nombre": "victor",
-    "puntuacion": "4",
-    "nivel": "1"
+    "puntuacion": 9,
+    "nivel": "2"
   },
   {
     "nombre": "sandro",
-    "puntuacion": "2",
+    "puntuacion": 2,
     "nivel": "1"
   },
   {
     "nombre": "samu",
-    "puntuacion": "3",
-    "nivel": "1"
+    "puntuacion": "7",
+    "nivel": "2"
   },
   {
     "nombre": "ruben",
-    "puntuacion": "3",
-    "nivel": "1"
+    "puntuacion": "6",
+    "nivel": "2"
   },
   {
     "nombre": "jesus",
-    "puntuacion": "4",
-    "nivel": "1"
+    "puntuacion": 6,
+    "nivel": "2"
   },
   {
     "nombre": "pepito",
@@ -41,7 +41,7 @@
   },
   {
     "nombre": "juanito",
-    "puntuacion": "1",
+    "puntuacion": 2,
     "nivel": "1"
   },
   {
@@ -55,7 +55,57 @@
     "nivel": "1"
   },
   {
-    "nombre": null,
+    "nombre": "diego",
+    "puntuacion": 11,
+    "nivel": "3"
+  },
+  {
+    "nombre": "fran",
+    "puntuacion": 10,
+    "nivel": "3"
+  },
+  {
+    "nombre": "manolo",
+    "puntuacion": "2",
+    "nivel": "1"
+  },
+  {
+    "nombre": "kike",
+    "puntuacion": 8,
+    "nivel": "2"
+  },
+  {
+    "nombre": "paula",
+    "puntuacion": "6",
+    "nivel": "2"
+  },
+  {
+    "nombre": "pablo",
+    "puntuacion": "6",
+    "nivel": "2"
+  },
+  {
+    "nombre": "jaimito",
+    "puntuacion": "3",
+    "nivel": "1"
+  },
+  {
+    "nombre": "pedrito",
+    "puntuacion": "2",
+    "nivel": "1"
+  },
+  {
+    "nombre": "julito",
+    "puntuacion": "1",
+    "nivel": "1"
+  },
+  {
+    "nombre": "sdffs",
+    "puntuacion": "1",
+    "nivel": "1"
+  },
+  {
+    "nombre": "dssd",
     "puntuacion": "1",
     "nivel": "1"
   }

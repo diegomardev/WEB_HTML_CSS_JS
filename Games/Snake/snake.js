@@ -1,8 +1,8 @@
-console.log(localStorage.getItem('max_puntuacion'))
+//console.log(localStorage.getItem('max_puntuacion'))
 if(localStorage.getItem('max_puntuacion')==null){
     localStorage.setItem('max_puntuacion', 0);
 }
-max_puntuacion.innerText=localStorage.getItem('max_puntuacion');
+//max_puntuacion.innerText=localStorage.getItem('max_puntuacion');
 let apples_puntuacion=0;
 
 async function getScores() {
@@ -13,7 +13,7 @@ async function getScores() {
 async function showScores() {
     let scores = await getScores();
     scores.sort((a, b) => b.puntuacion - a.puntuacion);
-    console.log(scores);
+    //console.log(scores);
     let scoreTable = document.getElementById("score-table"); // Obtener la tabla
     scoreTable.innerHTML = ""; // Limpiar la tabla
 
@@ -21,12 +21,13 @@ async function showScores() {
     headerRow.innerHTML = "<th>Position</th><th>Name</th><th>Score</th>"; // agregamos el encabezado de la tabla
     //headerRow.classList.add("rwd-table"); // Agregamos la clase CSS "rwd-table"
     scoreTable.appendChild(headerRow);  // Añadimos la fila completa a la tabla
-
-    for (let i = 0; i < 10 && i < scores.length; i++) {
+    max_puntuacion.innerText=scores[1].puntuacion;
+    localStorage.setItem('max_puntuacion', scores[1].puntuacion);
+    for (let i = 1; i < 11 && i < scores.length; i++) {
         let score = scores[i];
         let tableRow = document.createElement("tr"); // Creamos una fila para cada puntuación
         let positionCell = document.createElement("td"); // Creamos una celda para la posición
-        positionCell.innerText = (i + 1)+"º";
+        positionCell.innerText = (i)+"º";
         let nameCell = document.createElement("td"); // Creamos una celda para el nombre
         nameCell.innerText = score.nombre;
         let scoreCell = document.createElement("td"); // Creamos una celda para la puntuación
@@ -164,7 +165,6 @@ window.addEventListener("load", showScores);
                 let level=document.getElementById("level");
                 level.innerText=parseInt(level.innerText)+1;
             }
-
             if(apples_puntuacion>localStorage.getItem('max_puntuacion')){
                 localStorage.setItem('max_puntuacion', apples.innerText);
             }
@@ -197,7 +197,6 @@ window.addEventListener("load", showScores);
      * Funcion que se ejecuta cuando finaliza el juego
      */
     function end() {
-        showScores();
         process = clearInterval(process);
         board.classList.add("fail");
         buttonPause.disabled = true;
@@ -214,7 +213,6 @@ window.addEventListener("load", showScores);
         gameOverRestart.classList.add("game-over_restart");
         board.appendChild(gameOverRestart);
 
-        console.log("hola");
         //guardamos la puntuacion
 
         let nombre = prompt("Introduce tu nombre");
@@ -227,11 +225,11 @@ window.addEventListener("load", showScores);
             puntuacion,
             nivel,
             //tiempo
-          };
-          console.log(datos);
-          console.log("hola");
+        };
+          //console.log(datos);
+          //console.log("hola");
         // Send a POST request to the server endpoint to save the data to a JSON file
-        fetch('/guardar-puntuacion', {
+        fetch('/save_game_snake', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
