@@ -54,3 +54,7 @@ h1.dark {
     text-align: center;
     color: rgb(235, 235, 235);
 }
+
+.botones_numericos{
+    display: inline-table;
+}
