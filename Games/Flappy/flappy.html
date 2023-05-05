@@ -5,16 +5,42 @@
     <title>Flappy</title>
     <link rel="stylesheet" href="/Games/Flappy/flappy.css">
     <link rel="stylesheet" href="/Dark/dark.css" />
-    <link rel="stylesheet" href="/Hover/hover.css">
     <link rel="icon" type="image/png" href="./images/favicon.png">
   </head>
   <body>
     <div>
-        <button class="boton-personalizado" onclick="window.location.href='/home'">Home</button>
-        <button class="boton-personalizado" onclick="window.location.href='/games'">Games</button>
-        <button class="boton-personalizado" onclick="window.location.href='/games/pong'">Ping pong</button>
-        <button class="boton-personalizado" onclick="window.location.href='/games/snake'">Snake</button>
-        <button class="boton-personalizado" onclick="window.location.href='/hover'">Hover</button>
+      <div class="bloque_menu">
+        <div class="scene">
+        <div class="cube">
+          <span class="side top" onclick="window.location.href='/home'">GO</span>
+          <span class="side front" onclick="window.location.href='/home'">Home</span>
+        </div>
+      </div>
+      <div class="scene">
+        <div class="cube">
+          <span class="side top" onclick="window.location.href='/games'">GO</span>
+          <span class="side front" onclick="window.location.href='/games'">Games</span>
+        </div>
+      </div>
+      <div class="scene">
+        <div class="cube">
+          <span class="side top" onclick="window.location.href='/games/snake'">PLAY</span>
+          <span class="side front" onclick="window.location.href='/games/snake'">Snake</span>
+        </div>
+      </div>
+      <div class="scene">
+        <div class="cube">
+          <span class="side top" onclick="window.location.href='/games/pong'">PLAY</span>
+          <span class="side front" onclick="window.location.href='/games/pong'">Pong</span>
+        </div>
+      </div>
+      <div class="scene">
+        <div class="cube">
+          <span class="side top" onclick="window.location.href='/hover'">GO</span>
+          <span class="side front" onclick="window.location.href='/hover'">Hover</span>
+        </div>
+      </div>
+    </div>
     </div>
     <div class="juego">
        <canvas id="canvas" width="640" height="480"></canvas> 
@@ -22,13 +48,15 @@
     <div id="buttons">
         <button class="button2" type="button" value="Start" id="startButton">Start<button class="button2" type="button" value="Pause" id="restartButton" disabled>Restart
     </div>
-    <table class="rwd-table" id="score-table">
-        <tr>
-          <th>Position</th>
-          <th>Name</th>
-          <th>Score</th>
-        </tr>
-      </table>
+        <div class="tabla_puntuaciones">
+          <table class="rwd-table" id="score-table">
+            <tr>
+              <th>Position</th>
+              <th>Name</th>
+              <th>Score</th>
+            </tr>
+          </table>
+        </div>
     <script src="/Games/Flappy/flappy.js" charset="utf-8"></script>
     <label class="switch_dark" id="switch_dark">
         <span class="sun"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="#ffd43b"><circle r="5" cy="12" cx="12"></circle><path d="m21 13h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm-17 0h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm13.66-5.66a1 1 0 0 1 -.66-.29 1 1 0 0 1 0-1.41l.71-.71a1 1 0 1 1 1.41 1.41l-.71.71a1 1 0 0 1 -.75.29zm-12.02 12.02a1 1 0 0 1 -.71-.29 1 1 0 0 1 0-1.41l.71-.66a1 1 0 0 1 1.41 1.41l-.71.71a1 1 0 0 1 -.7.24zm6.36-14.36a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm0 17a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm-5.66-14.66a1 1 0 0 1 -.7-.29l-.71-.71a1 1 0 0 1 1.41-1.41l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.29zm12.02 12.02a1 1 0 0 1 -.7-.29l-.66-.71a1 1 0 0 1 1.36-1.36l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.24z"></path></g></svg></span>

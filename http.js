@@ -194,6 +194,26 @@ app.get('/Reloj/reloj.css', (req, res) => {
   });
 });
 
+app.get('/Home/home.css', (req, res) => {
+  fs.readFile('./Home/home.css', (err, data) => {
+    if (err) {
+      res.status(404).send('Error 404: Archivo no encontrado');
+    } else {
+      res.status(200).type('text/css').send(data);
+    }
+  });
+});
+
+app.get('/Games/games.css', (req, res) => {
+  fs.readFile('./Games/games.css', (err, data) => {
+    if (err) {
+      res.status(404).send('Error 404: Archivo no encontrado');
+    } else {
+      res.status(200).type('text/css').send(data);
+    }
+  });
+});
+
 app.get('/Hover/hover.css', (req, res) => {
   fs.readFile('./Hover/hover.css', (err, data) => {
     if (err) {

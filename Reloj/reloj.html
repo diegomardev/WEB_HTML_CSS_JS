@@ -9,8 +9,33 @@
   <link rel="icon" type="image/png" href="./images/favicon.png">
 </head>
 <body class="body_reloj">
-  <button class="boton-personalizado" onclick="goToHomePage()">Ir a la página de inicio</button>
-  <div class="boton-personalizado" id="hora"></div>
+  <body class="body_home">
+    <div class="bloque_menu">
+      <div class="scene">
+      <div class="cube">
+        <span class="side top" onclick="window.location.href='/home'">GO</span>
+        <span class="side front" onclick="window.location.href='/home'">Home</span>
+      </div>
+    </div>
+    <div class="scene">
+      <div class="cube">
+        <span class="side top" onclick="window.location.href='/games/snake'">PLAY</span>
+        <span class="side front" onclick="window.location.href='/games/snake'">Snake</span>
+      </div>
+    </div>
+    <div class="scene">
+      <div class="cube">
+        <span class="side top" onclick="window.location.href='/hover'">GO</span>
+        <span class="side front" onclick="window.location.href='/hover'">Hover</span>
+      </div>
+    </div>
+  </div>
+  <div class="scene">
+    <div class="cube">
+      <span class="side top"   onclick="window.location.href='/hover'"id="hora"></span>
+      <span class="side front" onclick="window.location.href='/hover'"id="hora">HORA</span>
+    </div>
+  </div>
   <div class="clock">
     <div class="outer-clock-face">
       <div class="marking marking-one"></div>

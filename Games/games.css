@@ -1,68 +1,3 @@
-* {
-    margin: 0px;
-    padding: 0px;
-}
-
-.button {
-    width: 75px;
-    height: 75px;
-    font-size: 50px;
-    margin: 2px;
-    cursor: pointer;
-    font-family: 'Lekton', sans-serif;
-    background: rgb(40, 56, 80);
-    color: white;
-    border: none;
-}
-
-.textview {
-    width: 307px;
-    margin: 5px;
-    font-size: 50px;
-    padding: 5px;
-    background: rgb(224, 225, 228);
-    border: none;
-    font-family: 'Lekton', sans-serif;
-    text-align: right;
-}
-
-.button_0 {
-    width: 156px;
-}
-
-.button_equal {
-    height: 156px;
-}
-
-.main {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-}
-
-h1.light{
-    align-items: center;
-    font-family: 'Lekton', sans-serif;
-    text-align: center;
-    color: rgb(33, 33, 33);
-}
-
-h1.dark {
-    align-items: center;
-    font-family: 'Lekton', sans-serif;
-    text-align: center;
-    color: rgb(235, 235, 235);
-}
-
-.botones_numericos{
-    display: inline-table;
-}
-.calculadora {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-}
 .scene {
     width: 10em;
     align-items: center;
@@ -115,4 +50,18 @@ h1.dark {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .footer {
+    align-content: center;
+    bottom: 0;
+    width: 99%;
+    justify-content: center;
+    display: flex;
+    position: absolute;
+}
+  .footer p {
+    text-align: center;
+    margin: 0;
+    padding: 15px 0;
   }
