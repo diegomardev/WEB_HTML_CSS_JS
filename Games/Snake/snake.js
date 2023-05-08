@@ -10,6 +10,8 @@ async function getScores() {
     let scores = await response.json();
     return scores;
 }
+
+//creamos una función para mostrar las puntuaciones
 async function showScores() {
     let scores = await getScores();
     scores.sort((a, b) => b.puntuacion - a.puntuacion);
